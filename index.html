@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Riya 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd1dc,#ffc0cb,#ffe4ec);
+    font-family:'Poppins',sans-serif;
+    position:relative;
+}
+
+/* Flowers */
+
+.flowers span{
+    position:absolute;
+    font-size:30px;
+    animation:float 10s linear infinite;
+    opacity:0.8;
+}
+
+.flowers span:nth-child(1){left:10%; animation-delay:0s;}
+.flowers span:nth-child(2){left:30%; animation-delay:2s;}
+.flowers span:nth-child(3){left:50%; animation-delay:4s;}
+.flowers span:nth-child(4){left:70%; animation-delay:1s;}
+.flowers span:nth-child(5){left:90%; animation-delay:3s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+    }
+}
+
+/* Container */
+
+.container{
+    position:relative;
+    width:400px;
+    height:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Envelope */
+
+.envelope{
+    width:320px;
+    height:220px;
+    background:#ff8fab;
+    position:absolute;
+    border-radius:12px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    transition:0.8s;
+    z-index:10;
+}
+
+.envelope::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:160px solid transparent;
+    border-right:160px solid transparent;
+    border-top:120px solid #ff5d8f;
+}
+
+.open-text{
+    color:white;
+    font-size:38px;
+    font-family:'Great Vibes',cursive;
+    z-index:20;
+}
+
+/* Letter */
+
+.letter{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -20%) scale(0.8);
+
+    width:380px;
+    max-width:90%;
+
+    background:white;
+    padding:25px;
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:1s ease;
+
+    z-index:100;
+}
+
+.letter img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    margin:15px 0;
+}
+
+.letter h1{
+    font-family:'Great Vibes',cursive;
+    color:#ff4f81;
+    font-size:48px;
+}
+
+.letter p{
+    color:#444;
+    font-size:16px;
+    line-height:1.8;
+    margin-top:10px;
+}
+
+.date{
+    margin-top:18px;
+    color:#ff4f81;
+    font-weight:600;
+}
+
+/* Open Animation */
+
+.show .letter{
+    opacity:1;
+    visibility:visible;
+
+    /* Maximum UP */
+    transform:translate(-50%, -55%) scale(1);
+}
+
+.show .envelope{
+    transform:scale(0);
+}
+
+/* Mobile */
+
+@media(max-width:500px){
+
+    .letter{
+        width:92%;
+        padding:20px;
+    }
+
+    .letter h1{
+        font-size:40px;
+    }
+
+    .letter p{
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Flowers -->
+
+<div class="flowers">
+    <span>🌸</span>
+    <span>🌷</span>
+    <span>💮</span>
+    <span>🌸</span>
+    <span>🌷</span>
+</div>
+
+<div class="container" id="container">
+
+    <!-- Envelope -->
+
+    <div class="envelope" onclick="openLetter()">
+        <div class="open-text">
+            Open 💌
+        </div>
+    </div>
+
+    <!-- Letter -->
+
+    <div class="letter">
+
+        <h1>Dear Riya 💖</h1>
+
+        <!-- ADD YOUR PHOTO -->
+        <img src="riya.jpg" alt="Photo">
+
+        <p>
+            I still remember the first day we talked.
+            Somehow that small conversation stayed in my mind longer than I expected.
+            <br><br>
+
+            Talking to you felt easy, calm, and genuinely nice.
+            Since then, even the smallest conversations with you make my day feel better.
+            <br><br>
+
+            I just wanted to make something small and special
+            because that memory genuinely means a lot to me.
+        </p>
+
+        <div class="date">
+            8 October 2025 ✨
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Song -->
+
+<audio id="music">
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function openLetter(){
+
+    document.getElementById("container").classList.add("show");
+
+    document.getElementById("music").play();
+
+}
+
+</script>
+
+</body>
+</html>
